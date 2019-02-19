@@ -29,12 +29,13 @@ router.post('/connectwithme',function(req,res,next){
   // setup email data with unicode symbols
  let mailOptions = {
    from: '"Sudeep Joel" <thisissudeep@msudeepjoel.com>', // sender address
-   to:`${req.body.email}`, // list of receivers
-   subject: `${req.body.subject}`, // Subject line
+   to:`thisissudeep@msudeepjoel.com`, // list of receivers
+   subject: `Name:${req.body.fname}${req.body.fname}`, // Subject line
    text: `${req.body.message}`, // plain text body
    html: `<b>Your Details<b><br><b>Firstname:${req.body.fname}</b><br>
    <b>Lastename:${req.body.lname}</b><br><b>Email:${req.body.email}</b><br>
-   Message:${req.body.message}</b><br>` // html body
+   Message:${req.body.message}</b><br>
+   Subject:${req.body.subject}</b><br>` // html body
  };
 let info = transporter.sendMail(mailOptions,function(error, response){
     if(error){
