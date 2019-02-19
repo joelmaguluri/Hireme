@@ -33,7 +33,8 @@ router.post('/connectwithme',function(req,res,next){
    subject: `${req.body.subject}`, // Subject line
    text: `${req.body.message}`, // plain text body
    html: `<b>Your Details<b><br><b>Firstname:${req.body.fname}</b><br>
-   <b>Lastename:${req.body.lname}</b><br><b>Email:${req.body.email}</b><br>` // html body
+   <b>Lastename:${req.body.lname}</b><br><b>Email:${req.body.email}</b><br>
+   Message:${req.body.message}</b><br>` // html body
  };
 let info = transporter.sendMail(mailOptions,function(error, response){
     if(error){
