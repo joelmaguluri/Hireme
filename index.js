@@ -8,10 +8,11 @@ app.use(express.static('views'));
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/users',userRouter);
 app.use('/admin',adminRouter);
-app.listen(8080,function(err){
+var port = process.env.port || 3000;
+app.listen(port,function(err){
     if(err){
         throw err;
     }
-    console.log("Server is Running at 8080 port!")
+    console.log("Server is Running at  port 3000!")
 });
 /* GET home page. */
