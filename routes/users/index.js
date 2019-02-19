@@ -29,7 +29,7 @@ router.post('/connectwithme',function(req,res,next){
   // setup email data with unicode symbols
  let mailOptions = {
    from: '"Sudeep Joel" <thisissudeep@msudeepjoel.com>', // sender address
-   to:`thisissudeep@msudeepjoel.com`, // list of receivers
+   to:`msudeepjoel.joel@gmail.com`, // list of receivers
    subject: `Name:${req.body.fname}${req.body.fname}`, // Subject line
    text: `${req.body.message}`, // plain text body
    html: `<b>Your Details<b><br><b>Firstname:${req.body.fname}</b><br>
