@@ -3,19 +3,22 @@ var router = app.Router();
 var bodyParser=require('body-parser');
 const email="msudeep.joel@gmail.com";
 const nodemailer = require("nodemailer");
-router.get('/login',function(req,res,next){
-res.send("helloworld");
 
-})
+/*router.get('/login',function(req,res,next){
+res.send("helloworld");});
+
 router.get('/register',function(req,res,next){
 res.send("helloworld");
 
-})
-router.get('/connectwithme',function(req,res,next){
+})*/
+router.get('/sendemail',function(req,res,next){
  res.sendFile('/views/index.html', { root: "./"});
-
-})
-router.post('/connectwithme',function(req,res,next){
+});
+router.post('/sendemail',function(req,res,next){
+console.log(req.body);
+res.json(req.body);
+});
+/*router.post('/sendemail',function(req,res,next){
 
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
@@ -32,12 +35,13 @@ router.post('/connectwithme',function(req,res,next){
  let mailOptions = {
    from: '"Sudeep Joel" <msudeep.joel@gmail.com>', // sender address
    to:`${email}`,// list of receivers
-   subject: `Name:${name}`, // Subject line
-   text: `${req.body.message}`, // plain text body
-   html: `<b>Your Details<b><br><b>Firstname:${name}</b><br>
-   <b>Lastename:${req.body.lname}</b><br><b>Email:${req.body.email}</b><br>
-   Message:${req.body.message}</b><br>
-   Subject:${req.body.subject}</b><br>` // html body
+   subject: `Resume:${name}`, // Subject line
+   text: ``, // plain text body
+   html: `<p>${req.body.message}</p>`, // html body
+   attachments: [
+   {
+    path: ABSPATH + '/images/test.jpg'
+   }]
  };
 let info = transporter.sendMail(mailOptions,function(error, response){
       if(error){
@@ -53,5 +57,6 @@ let info = transporter.sendMail(mailOptions,function(error, response){
       }
   });
     res.send(req.body);
-})
+});*/
+
 module.exports = router;
