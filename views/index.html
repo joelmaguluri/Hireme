@@ -2,13 +2,8 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>HireMe</title>
 </head>
-<script>
-var up=document.getElementById('upload').value;
-var url=document.getElementById('url').value;
-url=up;
-</script>
 <style>
 #file_input {
   padding-left: 500px;
@@ -22,16 +17,15 @@ url=up;
 
 </style>
 <body>
-   <form action='/users/sendemail' method='POST'>
+   <form action='/users/sendemail' method='POST' enctype="multipart/form-data">
     <center>
      Name:<input type="text" name="name" id="name">
-         <input type="text" name="url" id="url"   hidden>
      <br><br>
      Recruiter-email:<input type="email" name="email" id="email">
      <br><br>
      <p id="messsage_p">Message:<p><input type="text" name="message" id="message">
      <br><br>
-     <input type="file" id="upload" name="upload" accept="application/pdf">
+       <input type="file" name="Resume" id='file' required="required" />
      <br><br><input type="submit" value="Submit">
 
     </center>

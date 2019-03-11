@@ -4,14 +4,16 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "fs": "0.0.1-security",
     "mailer": "^0.6.7",
+    "multer": "^1.4.1",
     "node": "^11.10.0",
     "nodemailer": "^5.1.1",
     "nodemon": "^1.18.10"

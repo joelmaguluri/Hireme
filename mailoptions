@@ -1,0 +1,37 @@
+  // create reusable transporter object using the default SMTP transport
+  let transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true, // true for 465, false for other ports
+    auth: {
+      user: 'msudeep.joel@gmail.com', // generated ethereal user
+      pass: 'Jesus90^&' // generated ethereal password
+    }
+  });
+  // setup email data with unicode symbols
+ let name=req.body.fname+req.body.lname;
+ let mailOptions = {
+   from: '"Sudeep Joel" <msudeep.joel@gmail.com>', // sender address
+   to:`${email}`,// list of receivers
+   subject: `Resume:${req.name}`, // Subject line
+   text: `helloworld`, // plain text body
+   html: `<p>${req.body.message}</p>`, // html body
+   attachments: [
+        {   // utf-8 string as an attachment
+            filename: 'Resume.pdf',
+            path:'./../../uploads/Resume.pdf'
+        }]
+ };
+let info = transporter.sendMail(mailOptions,function(error, response){
+      if(error){
+          console.log('Failed in sending mail');
+          console.dir({success: false, existing: false, sendError: true});
+          console.dir(error);
+          res.end('Failed in sending mail');
+      }else{
+          console.log('Successful in sending email');
+          console.dir({success: true, existing: false, sendError: false});
+          console.dir(response);
+          res.end('Successful in sending email');
+      }
+  });
